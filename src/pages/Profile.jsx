@@ -38,7 +38,7 @@ const Profile = () => {
               <button className='logout-btn' onClick={logout}>Logout</button>
             </div>
             <div className="profile-section-right">
-              <h3 className="profile-section-credits">₹ {currentUser?.credits}</h3>
+              <h3 className="profile-section-credits">₹ {currentUser?.credits || "100"}</h3>
               <button className='withdraw-credits' onClick={openWhatsAppModal}>Withdraw</button>
               <button className='add-credits' onClick={openWhatsAppModal}>Add Credits</button>
             </div>

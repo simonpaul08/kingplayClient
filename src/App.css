@@ -555,6 +555,8 @@
 }
 
 .whatsapp-btn {
+    text-decoration: none;
+    display: inline-block;
     background-color: #25D366;
     color: var(--color-white);
 }

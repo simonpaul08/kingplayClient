@@ -13,7 +13,7 @@ const Header = () => {
         </Link>
         <Link to="profile" className="header-data">
           <div className="header-wallet">
-            <p>₹ {currentUser?.credits}</p>
+            <p>₹ {currentUser?.credits || "100"}</p>
           </div>
           <FaUser size={30} color='#fff' className='header-icon' />
         </Link>
