@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --bg-primary: rgb(146, 0, 170);
+    --bg-secondary: rgba(146, 0, 170, 0.5);
+    --color-white: #fff;
+    --color-black: #333;
+    --color-light-gray: #f1f1f1;
+    --color-gray: #ccc;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-black);
+    background-color: var(--bg-secondary);
+    background-image: url('./assets//bg-1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

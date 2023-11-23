@@ -1,0 +1,642 @@
+/*  Header */
+.header {
+    width: 100%;
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+    height: 15dvh;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.125rem solid var(--color-gray);
+}
+
+.header-content {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.header-logo h3 {
+    font-size: 1.8rem;
+}
+
+.header-data {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-wallet {
+    padding: 0.8rem 1.2rem;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 0.15rem solid gold;
+    border-radius: 2.5rem;
+    margin: 0 0.8rem;
+}
+
+.header-wallet p {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.header-icon {
+    cursor: pointer;
+}
+
+/* Login */
+.login,
+.register {
+    width: 100%;
+    height: 100dvh;
+    overflow: auto;
+}
+
+.login-content,
+.register-content {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-text,
+.register-form-text {
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+}
+
+.login-form,
+.register-form {
+    width: 350px;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-light-gray);
+    color: var(--color-black);
+    border-radius: 0.8rem;
+}
+
+.login-form-input,
+.register-form-input {
+    width: 100%;
+    padding: 1rem 0.8rem;
+    border: 1px solid var(--color-gray);
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    color: var(--color-black);
+    margin-bottom: 0.6rem;
+    outline: none;
+}
+
+.register-form-input {
+    margin-bottom: 1.5rem;
+}
+
+.forget-password-wrapper {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.forget-password {
+    display: inline-block;
+    color: var(--bg-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+}
+
+.forget-password:hover {
+    border-bottom: 1px solid var(--bg-primary);
+}
+
+.login-form-btn,
+.register-form-btn {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+    font-size: 1.25rem;
+    border-radius: 0.6rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.redirect-wrapper {
+    text-align: left;
+}
+
+.redirect {
+    font-size: 0.9rem;
+}
+
+.redirect-link {
+    text-decoration: none;
+    color: var(--bg-primary);
+    border-bottom: 1px solid transparent;
+}
+
+.redirect-link:hover {
+    border-bottom: 1px solid var(--bg-primary);
+}
+
+/* Dashboard */
+.dashboard {
+    width: 100%;
+    height: 85dvh;
+    overflow: auto;
+}
+
+.dashboard-content {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dashboard-header {
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    margin-bottom: 3rem;
+    border: 0.125rem solid var(--color-gray);
+}
+
+.dashboard-header h3 {
+    font-size: 1.45rem;
+}
+
+.dashboard-header-span {
+    color: var(--bg-primary);
+}
+
+.games-section {
+    width: 100%;
+    padding: 1.2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.game-box {
+    width: 100%;
+    padding: 2.5rem;
+    background-color: var(--color-light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px 1px rgba(146, 0, 170, 0.9);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(146, 0, 170, 0.9);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(146, 0, 170, 0.9);
+}
+
+.game-box:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transform: translateY(-0.35rem);
+}
+
+.game-box img {
+    width: 80%;
+    margin-bottom: 1.25rem;
+}
+
+.game-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+/* Play Toss */
+.playToss {
+    width: 100%;
+    height: 85dvh;
+    overflow: auto;
+}
+
+.playToss-content {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ready-cta {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.readyBtn {
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--bg-primary);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.playToss-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playToss-option {
+    padding: 1.25rem 2rem;
+    background-color: var(--color-white);
+    color: var(--bg-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.playToss-option.active {
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+}
+
+.countdown-content {
+    width: 100%;
+    text-align: center;
+}
+
+.countdown {
+    padding: 1.4rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.countdown-text {
+    font-size: 1.4rem;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.animation>div>svg {
+    width: 325px !important;
+    height: 325px !important;
+}
+
+/* Play Dice */
+.playDice {
+    width: 100%;
+    height: 85dvh;
+    overflow: auto;
+}
+
+.playDice-content {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dice-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dice-option {
+    padding: 1.5rem;
+    background-color: var(--color-white);
+    font-size: 1.25rem;
+    color: var(--bg-primary);
+    margin: 0 0.8rem 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dice-option.active {
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+}
+
+/* Profile */
+.profile {
+    width: 100%;
+    height: 85dvh;
+    overflow: auto;
+}
+
+.profile-content {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-header {
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    margin-bottom: 3rem;
+    border: 0.125rem solid var(--color-gray);
+}
+
+.profile-header h3 {
+    font-size: 1.45rem;
+}
+
+.profile-header-span {
+    color: var(--bg-primary);
+}
+
+.profile-section {
+    width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    border-radius: 0.6rem;
+}
+
+.profile-section-left {
+    flex: 1;
+    padding: 1rem;
+}
+
+.profile-detail-heading {
+    font-size: 1.6rem;
+    color: var(--bg-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.profile-details {
+    padding: 0.6rem 0.25rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    border-bottom: 0.125rem solid var(--color-light-gray);
+    margin-bottom: 0.8rem;
+}
+
+.profile-section-right {
+    width: 300px;
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+    border: 0.15rem solid gold;
+    border-radius: 0.6rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-section-credits {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.add-credits {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0.6rem;
+}
+
+.withdraw-credits {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: var(--color-white);
+    background-color: transparent;
+    border: 0.2rem solid var(--color-white);
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 0.6rem;
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    color: var(--bg-primary);
+    background-color: transparent;
+    border: 2px solid var(--bg-primary);
+    border-radius: 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 0.6rem;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+}
+
+/* utils */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.modal-content {
+    width: 25rem;
+    background-color: var(--bg-primary);
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.modal-close-wrapper {
+    padding: 0 0.5rem;
+    text-align: right;
+    border-bottom: 1px solid var(--color-light-gray);
+    margin-bottom: 1rem;
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+.open-whatsapp {
+    font-size: 0.85rem;
+    color: var(--color-light-gray);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.modal-content input {
+    margin-bottom: 2rem;
+}
+
+.modal-image {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.modal-text {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-button {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: var(--color-white);
+    color: var(--bg-primary);
+    font-size: 1.25rem;
+    border-radius: 0.6rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    color: var(--color-white);
+}
+
+.whatsapp-icon {
+    margin-right: 0.4rem;
+    margin-bottom: -0.45rem;
+}
+
+
+/*  Media Queries */
+@media screen and (max-width: 768px) {
+    .games-section {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+
+    .game-box {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .profile-section {
+        flex-direction: column;
+    }
+    .profile-section-right {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .game-box {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .dashboard-header h3,
+    .profile-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .header-logo h3 {
+        font-size: 1.5rem;
+    }
+
+    .header-wallet p {
+        font-size: 1.15rem;
+    }
+
+    .header-wallet {
+        padding: 0.6rem 1rem;
+    }
+
+    .game-name {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .modal-content {
+        width: 18rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .games-section {
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+    }
+    .game-box img {
+        width: 95%;
+    }
+
+    .dashboard-header h3 {
+        font-size: 1.15rem;
+    }
+    .profile-section-right {
+       width: 95%;
+    } 
+    .profile-detail-heading  {
+        font-size: 1.4rem;
+    }
+    .redirect {
+        font-size: 0.75rem;
+    }
+}
