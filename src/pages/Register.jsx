@@ -21,7 +21,7 @@ const Register = () => {
         setIsLoading(true);
 
         try {
-            const res = await axios.post(`${import.meta.env.VITE_APP_URL}/auth/register`, { phone });
+            const res = await axios.post(`${import.meta.env.VITE_APP_URL}/auth/register`, { name, phone });
             console.log(res.data);
             if (res.data?.message) {
                 setIsOtp(true);
