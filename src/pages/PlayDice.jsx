@@ -22,8 +22,23 @@ const PlayDice = () => {
 
     // handle click on side
     const handleClickOnSide = (side) => {
-        setCurrentTab(side);
-        setIsAmount(true);
+        if (currentTab === "") {
+            setCurrentTab(side);
+            setIsAmount(true);
+        } else {
+            toast.error("Invalid Option",
+                {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                }
+            )
+        }
     }
 
     // handle joined with amount
