@@ -12,7 +12,6 @@ const PlayDice = () => {
     const { socket } = useSocketContext();
     const { currentUser } = useAuthContext();
     const [currentTab, setCurrentTab] = useState('');
-    const [joined, setJoined] = useState(false);
     const [countdown, setCountdown] = useState(0);
     // const [name, setName] = useState('');
     // const [room, setRoom] = useState('');
@@ -21,18 +20,18 @@ const PlayDice = () => {
     const [winner, setWinner] = useState('');
     const [amount, setAmount] = useState(5);
 
-    // handle joined 
-    const handleJoined = () => {
+    // handle click on side
+    const handleClickOnSide = (side) => {
+        setCurrentTab(side);
         setIsAmount(true);
     }
 
     // handle joined with amount
     const handleJoinedWithAmount = () => {
         if (Number(currentUser?.credits) >= Number(amount)) {
-            socket.emit('join-dice-lobby', { name: currentUser?.name, room: 'dice-lobby', amount });
+            socket.volatile.emit('join-dice-lobby', { name: currentUser?.name, room: 'dice-lobby', amount, side: currentTab });
             setIsAmount(false);
             setAmount(5);
-            setJoined(true);
         } else {
             toast.error("Not Enough Credits",
                 {
@@ -50,25 +49,6 @@ const PlayDice = () => {
         }
     }
 
-    // // handle reset room 
-    // const handleResetRoom = () => {
-    //     setCurrentTab('');
-    //     setJoined(false);
-    //     setCountdown(0);
-    //     setIsCountdown(false);
-    //     setWinner('');
-    // }
-
-    // handle choose side 
-    const handleChooseSide = (side) => {
-
-        if (!isCountDown) {
-            setCurrentTab(side);
-            socket.emit('choose-dice-side', { side });
-        } else {
-            console.log('you cant choose in the middle of the game');
-        }
-    }
 
     // catch every other socket event
     useEffect(() => {
@@ -87,7 +67,6 @@ const PlayDice = () => {
         // toss lobby countdown 
         socket.on('dice-lobby-countdown', data => {
             setCountdown(data);
-            setIsCountdown(true);
         })
 
         return () => {
@@ -114,6 +93,7 @@ const PlayDice = () => {
 
         // join the room on component mount
         socket.emit('join-dice');
+
 
         return () => {
             // leave the room on component unmount
@@ -144,46 +124,29 @@ const PlayDice = () => {
                     <div className="animation">
                         <Lottie animationData={DiceAnimation} loop={isCountDown ? true : false} />
                     </div>
-
-                    {isCountDown === true &&
-                        <div className="countdown-content">
-                            <div className="countdown">
-                                {countdown}
-                            </div>
+                    <div className="countdown-content">
+                        <div className="countdown">
+                            {countdown}
                         </div>
-                    }
+                    </div>
 
                     {/* <form>
                         <input type="text" placeholder='enter name' value={name} onChange={(e) => setName(e.target.value)} />
                         <input type="text" placeholder='enter room' value={room} onChange={(e) => setRoom(e.target.value)} />
                     </form> */}
 
-                    {joined === true ?
-                        <>
-                            {!isCountDown ?
-                                <div className="dice-options">
-                                    <div className={`dice-option ${currentTab === "1" ? "active" : ""}`} onClick={() => handleChooseSide('1')}>1</div>
-                                    <div className={`dice-option ${currentTab === "2" ? "active" : ""}`} onClick={() => handleChooseSide('2')}>2</div>
-                                    <div className={`dice-option ${currentTab === "3" ? "active" : ""}`} onClick={() => handleChooseSide('3')}>3</div>
-                                    <div className={`dice-option ${currentTab === "4" ? "active" : ""}`} onClick={() => handleChooseSide('4')}>4</div>
-                                    <div className={`dice-option ${currentTab === "5" ? "active" : ""}`} onClick={() => handleChooseSide('5')}>5</div>
-                                    <div className={`dice-option ${currentTab === "6" ? "active" : ""}`} onClick={() => handleChooseSide('6')}>6</div>
-                                </div>
-                                :
-                                <p className='countdown-text'>Please wait until the current game is finished </p>}
+                    <>
+                        <div className="dice-options">
+                            <div className={`dice-option ${currentTab === "1" ? "active" : ""}`} onClick={() => handleClickOnSide('1')}>1</div>
+                            <div className={`dice-option ${currentTab === "2" ? "active" : ""}`} onClick={() => handleClickOnSide('2')}>2</div>
+                            <div className={`dice-option ${currentTab === "3" ? "active" : ""}`} onClick={() => handleClickOnSide('3')}>3</div>
+                            <div className={`dice-option ${currentTab === "4" ? "active" : ""}`} onClick={() => handleClickOnSide('4')}>4</div>
+                            <div className={`dice-option ${currentTab === "5" ? "active" : ""}`} onClick={() => handleClickOnSide('5')}>5</div>
+                            <div className={`dice-option ${currentTab === "6" ? "active" : ""}`} onClick={() => handleClickOnSide('6')}>6</div>
+                        </div>
 
-                        </>
-                        :
-                        <>
-                            <div className="ready-cta">
-                                {isCountDown ?
-                                    <p className='countdown-text'>Please wait until the current game is finished </p>
-                                    :
-                                    <button className='readyBtn' onClick={handleJoined}>Play Game</button>
-                                }
-                            </div>
-                        </>
-                    }
+                    </>
+
 
 
                 </div>
