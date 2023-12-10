@@ -1,5 +1,4 @@
 import React from 'react';
-import Dice from '../assets/dice.png';
 import one from '../assets/one.png';
 import two from '../assets/two.png';
 import three from '../assets/three.png';
@@ -7,6 +6,7 @@ import four from '../assets/four.png';
 import five from '../assets/five.png';
 import six from '../assets/six.png';
 import { useNavigate } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const DiceModal = ({ winner }) => {
@@ -40,7 +40,7 @@ const DiceModal = ({ winner }) => {
   return (
     <div className='modal'>
       <div className="modal-content">
-        <img src={diceImage} alt="Coin Img" className='modal-image' />
+        <LazyLoadImage  src={diceImage} alt="Coin Img" className='modal-image' />
         <h3 className='modal-text'>{winner} Won</h3>
         <button className='modal-button' onClick={handleOnClose}>Close</button>
       </div>
