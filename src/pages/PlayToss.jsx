@@ -41,6 +41,12 @@ const PlayToss = () => {
         }
     }
 
+    // handle on close modal
+    const handleCloseModal = () => {
+        setIsAmount(false);
+        setCurrentTab('');
+    }
+
     // handle joined with amount
     const handleJoinedWithAmount = () => {
         if (Number(currentUser?.credits) >= Number(amount)) {
@@ -134,7 +140,7 @@ const PlayToss = () => {
                 theme="light"
             />
             <ToastContainer />
-            {isAmount && <EnterAmountModal amount={amount} setAmount={setAmount} handleJoinedWithAmount={handleJoinedWithAmount} />}
+            {isAmount && <EnterAmountModal handleCloseModal={handleCloseModal} amount={amount} setAmount={setAmount} handleJoinedWithAmount={handleJoinedWithAmount} />}
             {winner !== "" && <CoinTossModal winner={winner} />}
             <div className='playToss'>
                 <div className="playToss-content">
