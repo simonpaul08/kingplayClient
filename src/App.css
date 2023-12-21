@@ -1,3 +1,41 @@
+/* Utils */
+.full-screen-loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(146, 0, 170, 0.45);
+    z-index: 1000;
+}
+
+.full-screen-loader {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+    border: 0.5rem solid #f1f1f1;
+    border-right: 0.5rem solid #6981ec;
+    border-radius: 50%;
+    animation: full-screen-loader 1s linear infinite;
+    margin-bottom: 2rem;
+}
+
+
+@keyframes full-screen-loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
 /*  Header */
 .header {
     width: 100%;
@@ -45,6 +83,7 @@
     border-radius: 2.5rem;
     margin: 0 0.8rem;
 }
+
 .refresh-icon {
     margin-left: 0.6rem;
     margin-top: 0.4rem;
@@ -535,12 +574,14 @@
 .modal-content input {
     margin-bottom: 1rem;
 }
+
 .modal-suggestions {
     width: 100%;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
 }
+
 .modal-suggestion {
     padding: 0.25rem 1rem;
     background-color: var(--color-white);
@@ -553,9 +594,11 @@
     border: 0.1rem solid transparent;
     transition: border 0.3s ease;
 }
+
 .modal-suggestion:first-child {
     margin-left: 0;
 }
+
 .modal-suggestion:hover {
     border-color: var(--bg-secondary);
 }
@@ -585,6 +628,7 @@
     font-weight: 600;
     margin-bottom: 0.65rem;
 }
+
 .modal-close-button {
     width: 100%;
     padding: 1rem 0;
@@ -599,6 +643,7 @@
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .modal-close-button:hover {
     background-color: var(--color-white);
     color: var(--bg-primary);
@@ -632,6 +677,7 @@
     .profile-section {
         flex-direction: column;
     }
+
     .profile-section-right {
         margin: 0 auto;
     }
@@ -675,6 +721,7 @@
         grid-template-columns: 1fr;
         grid-gap: 1rem;
     }
+
     .game-box img {
         width: 95%;
     }
@@ -682,12 +729,15 @@
     .dashboard-header h3 {
         font-size: 1.15rem;
     }
+
     .profile-section-right {
-       width: 95%;
-    } 
-    .profile-detail-heading  {
+        width: 95%;
+    }
+
+    .profile-detail-heading {
         font-size: 1.4rem;
     }
+
     .redirect {
         font-size: 0.75rem;
     }

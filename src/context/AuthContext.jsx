@@ -24,21 +24,28 @@ const AuthContextProvider = ({ children }) => {
     }
 
     // update user's credits
-    const updateUserCredits = async () => {
-        const result = await fetchCredits(currentUser?._id);
-        let user = JSON.parse(window.localStorage.getItem('kingPlay-user'));
-        if(!user){
-            return;
+    const updateUserCredits = async (setIsLoading) => {
+        setIsLoading(true);
+        try {
+            const result = await fetchCredits(currentUser?._id);
+            let user = JSON.parse(window.localStorage.getItem('kingPlay-user'));
+            if (!user) {
+                return;
+            }
+            user.credits = Number(result.data?.credits);
+            window.localStorage.setItem('kingPlay-user', JSON.stringify(user));
+            setCurrentUser(user);
+        } catch (e) {
+            console.log(e)
+        } finally {
+            setIsLoading(false);
         }
-        user.credits = Number(result.data?.credits);
-        window.localStorage.setItem('kingPlay-user', JSON.stringify(user));
-        setCurrentUser(user);
-    } 
+    }
 
     // persist user
     useEffect(() => {
         let user = JSON.parse(window.localStorage.getItem('kingPlay-user'));
-        if(user){
+        if (user) {
             setCurrentUser(user);
         }
     }, [])
@@ -53,7 +60,7 @@ const AuthContextProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={value}>
-            { children }
+            {children}
         </AuthContext.Provider>
     )
 }

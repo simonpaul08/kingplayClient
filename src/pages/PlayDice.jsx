@@ -6,6 +6,7 @@ import DiceModal from '../components/DiceModal';
 import { ToastContainer, toast } from 'react-toastify';
 import EnterAmountModal from '../components/EnterAmountModal';
 import { useAuthContext } from '../context/AuthContext';
+import FullScreenLoader from '../components/FullScreenLoader';
 
 const PlayDice = () => {
 
@@ -13,12 +14,11 @@ const PlayDice = () => {
     const { currentUser } = useAuthContext();
     const [currentTab, setCurrentTab] = useState('');
     const [countdown, setCountdown] = useState(0);
-    // const [name, setName] = useState('');
-    // const [room, setRoom] = useState('');
     const [isCountDown, setIsCountdown] = useState(false);
     const [isAmount, setIsAmount] = useState(false);
     const [winner, setWinner] = useState('');
     const [amount, setAmount] = useState(5);
+    const [calcState, setCalcState] = useState(false);
 
     // handle click on side
     const handleClickOnSide = (side) => {
@@ -88,6 +88,9 @@ const PlayDice = () => {
         // toss lobby countdown 
         socket.on('dice-lobby-countdown', data => {
             setCountdown(data);
+            if(data == "1"){
+                setCalcState(true);
+            }
         })
 
         return () => {
@@ -101,6 +104,7 @@ const PlayDice = () => {
         socket.once('dice-winner', data => {
             console.log(data);
             setIsCountdown(false);
+            setCalcState(false);
             setWinner(data);
             socket.emit('dice-lobby-reset');
         })
@@ -138,6 +142,7 @@ const PlayDice = () => {
             />
             <ToastContainer />
             {isAmount && <EnterAmountModal handleCloseModal={handleCloseModal} amount={amount} setAmount={setAmount} handleJoinedWithAmount={handleJoinedWithAmount} />}
+            {calcState && <FullScreenLoader />}
             {winner !== "" && <DiceModal winner={winner} />}
             <div className="playDice">
                 <div className="playDice-content">
@@ -150,11 +155,6 @@ const PlayDice = () => {
                             {countdown}
                         </div>
                     </div>
-
-                    {/* <form>
-                        <input type="text" placeholder='enter name' value={name} onChange={(e) => setName(e.target.value)} />
-                        <input type="text" placeholder='enter room' value={room} onChange={(e) => setRoom(e.target.value)} />
-                    </form> */}
 
                     <>
                         <div className="dice-options">

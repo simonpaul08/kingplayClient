@@ -6,6 +6,7 @@ import CoinTossModal from '../components/CoinTossModal';
 import EnterAmountModal from '../components/EnterAmountModal';
 import { useAuthContext } from '../context/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
+import FullScreenLoader from '../components/FullScreenLoader';
 
 const PlayToss = () => {
 
@@ -17,6 +18,7 @@ const PlayToss = () => {
     const [isAmount, setIsAmount] = useState(false);
     const [winner, setWinner] = useState('');
     const [amount, setAmount] = useState(5);
+    const [calcState, setCalcState] = useState(false);
 
 
     // handle click on side 
@@ -90,6 +92,9 @@ const PlayToss = () => {
         // toss lobby countdown 
         socket.on('toss-lobby-countdown', data => {
             setCountdown(data);
+            if(data == "1"){
+                setCalcState(true);
+            }
         })
 
         return () => {
@@ -102,6 +107,7 @@ const PlayToss = () => {
         // announce winner 
         socket.once('toss-winner', data => {
             console.log(data);
+            setCalcState(false);
             setWinner(data);
             socket.emit('toss-lobby-reset');
         })
@@ -140,6 +146,7 @@ const PlayToss = () => {
             />
             <ToastContainer />
             {isAmount && <EnterAmountModal handleCloseModal={handleCloseModal} amount={amount} setAmount={setAmount} handleJoinedWithAmount={handleJoinedWithAmount} />}
+            {calcState && <FullScreenLoader />}
             {winner !== "" && <CoinTossModal winner={winner} />}
             <div className='playToss'>
                 <div className="playToss-content">
