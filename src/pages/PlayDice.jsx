@@ -50,7 +50,7 @@ const PlayDice = () => {
     // handle joined with amount
     const handleJoinedWithAmount = () => {
         if (Number(currentUser?.credits) >= Number(amount)) {
-            socket.volatile.emit('join-dice-lobby', { name: currentUser?.name, room: 'dice-lobby', amount, side: currentTab });
+            socket.volatile.emit('join-dice-lobby', { name: currentUser?.name, phone: currentUser?.phone, room: 'dice-lobby', amount, side: currentTab });
             setIsAmount(false);
             setAmount(5);
         } else {

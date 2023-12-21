@@ -3,9 +3,17 @@ import CoinToss from '../assets/coin-toss.png';
 import Dice from '../assets/dice.png';
 import ComingSoon from '../assets/coming-soon.png';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../context/AuthContext';
 
 
 const Dashboard = () => {
+
+  const { updateUserCredits } = useAuthContext();
+
+
+  useEffect(() => {
+    updateUserCredits();
+  }, [])
 
   return (
     <div className='dashboard'>

@@ -36,12 +36,18 @@
 }
 
 .header-wallet {
+    display: flex;
+    align-items: center;
     padding: 0.8rem 1.2rem;
     background-color: var(--color-white);
     color: var(--color-black);
     border: 0.15rem solid gold;
     border-radius: 2.5rem;
     margin: 0 0.8rem;
+}
+.refresh-icon {
+    margin-left: 0.6rem;
+    margin-top: 0.4rem;
 }
 
 .header-wallet p {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useSocketContext } from '../context/SocketContext';
-import { useNavigate } from 'react-router-dom';
 import CoinFlipAnimation from '../assets/animation1.json';
 import Lottie from 'lottie-react';
 import CoinTossModal from '../components/CoinTossModal';
@@ -51,7 +50,7 @@ const PlayToss = () => {
     const handleJoinedWithAmount = () => {
         if (Number(currentUser?.credits) >= Number(amount)) {
             if (!isCountDown) {
-                socket.emit('join-toss-lobby', { name: currentUser?.name, room: 'toss-lobby', amount, side: currentTab });
+                socket.emit('join-toss-lobby', { name: currentUser?.name, phone: currentUser?.phone, room: 'toss-lobby', amount, side: currentTab });
             } else {
                 console.log('you cant choose in the middle of the game');
             }
