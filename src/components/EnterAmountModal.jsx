@@ -26,7 +26,7 @@ const EnterAmountModal = ({ amount, setAmount, handleJoinedWithAmount, handleClo
               <div className="modal-suggestion" onClick={() => handleSuggestion('35')}>35</div>
             </div>
             <button type="submit" className='modal-button'>Submit</button>
-            <button type="button" className="modal-close" onClick={handleCloseModal}>Close</button>
+            <button type="button" className="modal-close-button" onClick={handleCloseModal}>Close</button>
           </form>
         </div>
     </div>

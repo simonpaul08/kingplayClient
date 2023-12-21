@@ -585,7 +585,7 @@
     font-weight: 600;
     margin-bottom: 0.65rem;
 }
-.modal-close {
+.modal-close-button {
     width: 100%;
     padding: 1rem 0;
     text-align: center;
@@ -599,7 +599,7 @@
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-.modal-close:hover {
+.modal-close-button:hover {
     background-color: var(--color-white);
     color: var(--bg-primary);
 }
